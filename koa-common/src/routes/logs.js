@@ -6,10 +6,10 @@ export default function logsRoutes(router) {
 
 async function getLogs(ctx) {
     const knex = await getDatabase();
-    const logs = await knex.select().table(tables.LOGS);
+    const logs = await knex.select().table(tables.LOGS).orderByRaw('created DESC');
 
     ctx.status = 200;
     ctx.body = {
-        logs
+        data: logs
     };
 }
