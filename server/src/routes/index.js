@@ -1,12 +1,14 @@
 import Router from "koa-router";
-import pingRoutes from "./ping";
 import logsRoutes from "./logs";
+import pingRoutes from "./ping";
+import restaurantRoutes from "./restaurants";
 
 export default function setupRoutes(app) {
     const router = new Router();
 
-    pingRoutes(router);
     logsRoutes(router);
+    pingRoutes(router);
+    restaurantRoutes(router);
 
     app
         .use(router.routes())
