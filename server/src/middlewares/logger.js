@@ -1,4 +1,4 @@
-import getDatabase, { tables } from "../db";
+import logService from "../services/logService";
 
 export default function setupLogger(app) {
     app.use(async (ctx, next) => {
@@ -6,21 +6,13 @@ export default function setupLogger(app) {
 
         await next();
 
-        const ms = Date.now() - start;
+        const duration = Date.now() - start;
 
         try {
-            const knex = await getDatabase();
-            await knex(tables.LOGS).insert(createLog(`${ctx.method} ${ctx.url}`, ms));
+            await logService.createInfoLog(`${ctx.endpoint} - ${duration}ms`);
         } catch (e) {
             console.warn(e);
         }
     });
 };
 
-function createLog(endpoint, duration) {
-    return {
-        endpoint,
-        duration,
-        created: new Date()
-    };
-}
