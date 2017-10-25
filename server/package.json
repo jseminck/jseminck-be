@@ -8,11 +8,13 @@
     "start": "nodemon src/index.js --exec babel-node",
     "build": "babel src/ -d dist",
     "build:clean": "rimraf ./dist",
+    "lint": "eslint ./src",
     "knex:migrations:run": "knex migrate:latest",
     "knex:migrations:create": "knex migrate:make"
   },
   "dependencies": {
     "aws-sdk": "^2.140.0",
+    "babel-polyfill": "^6.26.0",
     "dotenv": "^4.0.0",
     "knex": "^0.13.0",
     "koa": "^2.3.0",
@@ -30,9 +32,10 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "nodemon": "^1.12.1",
     "rimraf": "^2.6.2"
   }

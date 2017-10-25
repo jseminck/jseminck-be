@@ -1,18 +1,18 @@
-import logService from "../services/logService";
+import logService from '../services/logService';
 
 export default function setupLogger(app) {
-    app.use(async (ctx, next) => {
-        const start = Date.now();
+  app.use(async (ctx, next) => {
+    const start = Date.now();
 
-        await next();
+    await next();
 
-        const duration = Date.now() - start;
+    const duration = Date.now() - start;
 
-        try {
-            await logService.createInfoLog(`${ctx.endpoint} - ${duration}ms`);
-        } catch (e) {
-            console.warn(e);
-        }
-    });
-};
+    try {
+      await logService.createInfoLog(`${ctx.endpoint} - ${duration}ms`);
+    } catch (e) {
+      console.warn(e); // eslint-disable-line no-console
+    }
+  });
+}
 

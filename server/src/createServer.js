@@ -1,6 +1,6 @@
-import Koa from "koa";
-import setupMiddlewares from "./middlewares";
-import setupRoutes from "./routes";
+import Koa from 'koa';
+import setupMiddlewares from './middlewares';
+import setupRoutes from './routes';
 
 export default function createServer() {
   const app = new Koa();
@@ -9,4 +9,4 @@ export default function createServer() {
   setupRoutes(app);
 
   return app;
-};
+}

@@ -1,3 +1,3 @@
 export default {
-    LOGS: 'logs'
+  LOGS: 'logs',
 };
