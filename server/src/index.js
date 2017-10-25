@@ -1,4 +1,5 @@
 require("babel-polyfill");
+require('dotenv').config();
 
 import createServer from "./createServer";
 

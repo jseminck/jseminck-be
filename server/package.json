@@ -12,10 +12,13 @@
     "knex:migrations:create": "knex migrate:make"
   },
   "dependencies": {
+    "aws-sdk": "^2.140.0",
+    "dotenv": "^4.0.0",
     "knex": "^0.13.0",
     "koa": "^2.3.0",
     "koa-cors": "0.0.16",
     "koa-router": "^7.2.1",
+    "lodash": "^4.17.4",
     "pg": "^7.3.0",
     "x-ray": "^2.3.2"
   },
