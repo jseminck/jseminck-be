@@ -1,0 +1,2 @@
+https://www.tripadvisor.com/RestaurantSearch?Action=PAGE&geo=274958&ajax=1&itags=10591&pid=6&sortOrder=relevance&o=a90&availSearchEnabled=false
+https://www.tripadvisor.com/RestaurantSearch?Action=PAGE&geo=274958&ajax=1&itags=10591&pid=6&sortOrder=relevance&o=a150&availSearchEnabled=false
