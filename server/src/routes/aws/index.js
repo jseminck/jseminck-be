@@ -1,8 +1,6 @@
 import _ from 'lodash';
 import AWS from 'aws-sdk';
 
-let aws;
-
 export default function pingRoutes(router) {
     router
         .get('/aws', getAwsInstances)
