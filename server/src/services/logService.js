@@ -6,6 +6,16 @@ const logTypes = {
 };
 
 export default {
+  async findAll({ type }) {
+    const knex = await getDatabase();
+
+    if (type) {
+      return knex.select().table(tables.LOGS).where({ type }).orderByRaw('created DESC');
+    }
+
+    return knex.select().table(tables.LOGS).orderByRaw('created DESC');
+  },
+
   async createInfoLog(message) {
     return save(createLogItem(message, logTypes.INFO));
   },
