@@ -7,15 +7,21 @@ const logTypes = {
 
 export default {
   async createInfoLog(message) {
-    const logItem = {
-      message,
-      type: logTypes.INFO,
-      created: new Date(),
-    };
+    return save(createLogItem(message, logTypes.INFO));
+  },
 
-    return save(logItem);
+  async createErrorLog(message) {
+    return save(createLogItem(message, logTypes.ERROR));
   },
 };
+
+function createLogItem(message, type) {
+  return {
+    message,
+    type,
+    created: new Date(),
+  };
+}
 
 async function save(logItem) {
   const knex = await getDatabase();

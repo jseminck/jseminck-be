@@ -1,10 +1,16 @@
+import logService from '../services/logService';
+
 export default function setupErrorHandler(app) {
   app.use(async (ctx, next) => {
     try {
       await next();
     } catch (err) {
-      ctx.status = err.status || 500;
-      ctx.body = err.message;
+      const { status, message } = err;
+
+      logService.createErrorLog(message);
+      ctx.status = status || 500;
+      ctx.body = message;
+
       ctx.app.emit('error', err, ctx);
     }
   });
