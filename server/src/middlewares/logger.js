@@ -9,7 +9,7 @@ export default function setupLogger(app) {
     const duration = Date.now() - start;
 
     try {
-      await logService.createInfoLog(`${ctx.endpoint} - ${duration}ms`);
+      await logService.createInfoLog(`${ctx.method} ${ctx.url} - ${duration}ms`);
     } catch (e) {
       console.warn(e); // eslint-disable-line no-console
     }
