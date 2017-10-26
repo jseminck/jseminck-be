@@ -1,4 +1,4 @@
-import scrapeTripadvisor from './scraper';
+import scrapeTripadvisor from './scrapeTripadvisor';
 
 export default function restaurantRoutes(router) {
   router
