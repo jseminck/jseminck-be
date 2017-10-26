@@ -1,5 +1,7 @@
-import xray from 'x-ray';
 import { promisify } from 'util';
+import xray from 'x-ray';
+import time from '../../util/time';
+import currencyRatesService from '../../services/currencyRatesService';
 import getCurrencies from './currencies';
 
 export default function scrapeXe() {
@@ -8,6 +10,13 @@ export default function scrapeXe() {
   return Promise.all(getCurrencies().map(async (currency) => {
     const toCurrency = currency.code;
     const currencyRate = await scrapeCurrencyRate(x, 'USD', toCurrency);
+
+    await currencyRatesService.save({
+      fromCurrency: 'USD',
+      toCurrency,
+      currencyRate,
+      updated: time.todayAsString(),
+    });
 
     return {
       fromCurrency: 'USD',
@@ -24,7 +33,7 @@ async function scrapeCurrencyRate(x, fromCurrency, toCurrency) {
 
   console.log(`${fromCurrency} -> ${toCurrency}: ${currencyRate}`);
 
-  return currencyRate;
+  return Number(currencyRate.replace(',', ''));
 }
 
 function createXeUrl(fromCurrency, toCurrency) {

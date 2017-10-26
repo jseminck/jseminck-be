@@ -5,7 +5,7 @@ import knexFile from '../../knexfile';
 let database;
 
 export default function getDatabase() {
-  return new Promise(async (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     try {
       if (database) {
         resolve(database);

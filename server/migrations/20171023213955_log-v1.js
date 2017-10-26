@@ -1,4 +1,4 @@
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.schema.createTable('log', (table) => {
     table.increments('id').unsigned().primary();
     table.string('endpoint').notNull();
@@ -7,6 +7,6 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex) {
-    return knex.schema.dropTable('products');
+exports.down = function (knex) {
+  return knex.schema.dropTable('log');
 };

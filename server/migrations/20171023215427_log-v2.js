@@ -1,8 +1,8 @@
 
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.schema.renameTable('log', 'logs');
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.schema.renameTable('logs', 'log');
 };
