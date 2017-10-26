@@ -6,10 +6,13 @@ export default function scrapeXe() {
   const x = xray();
 
   return Promise.all(getCurrencies().map(async (currency) => {
+    const toCurrency = currency.code;
+    const currencyRate = await scrapeCurrencyRate(x, 'USD', toCurrency);
+
     return {
       fromCurrency: 'USD',
-      toCurrency: currency.code,
-      currencyRate: await scrapeCurrencyRate(x, 'USD', currency.code),
+      toCurrency,
+      currencyRate,
     };
   }));
 }
