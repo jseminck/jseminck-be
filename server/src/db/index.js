@@ -5,20 +5,12 @@ import knexFile from '../../knexfile';
 let database;
 
 export default function getDatabase() {
-  return new Promise((resolve, reject) => {
-    try {
-      if (database) {
-        resolve(database);
-        return;
-      }
+  if (database) {
+    return database;
+  }
 
-      database = knex(knexFile.development);
-      resolve(database);
-    } catch (error) {
-      console.warn(error); // eslint-disable-line no-console
-      reject(error);
-    }
-  });
+  database = knex(knexFile.development);
+  return database;
 }
 
 export {
