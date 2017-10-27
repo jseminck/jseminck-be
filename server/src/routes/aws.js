@@ -8,7 +8,7 @@ export default function awsRoutes(router) {
     .post('/aws/:instanceId/stop', stopAwsInstance);
 }
 
-async function getAwsInstances(ctx) {
+export async function getAwsInstances(ctx) {
   const aws = getAws();
   const awsRequest = aws.describeInstances();
   const awsResponse = await awsRequest.promise();

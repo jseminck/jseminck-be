@@ -6,7 +6,7 @@ export default function currenciesRoutes(router) {
   router.get('/currencies', getCurrencies);
 }
 
-async function getCurrencies(ctx) {
+export async function getCurrencies(ctx) {
   const currencyRates = await getCurrencyRatesForToday();
 
   ctx.status = 200;
