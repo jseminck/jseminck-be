@@ -1,23 +1,22 @@
 import nodemailer from 'nodemailer';
 
 export default {
-  sendMail(to, message) {
+  async sendMail(to, subject, message) {
     const transporter = nodemailer.createTransport(getNodeMailerOptions());
 
     const mailOptions = {
-      from: 'jseminck.belgium@gmail.com',
-      to: 'joachim@seminck.be',
-      subject: 'Test',
-      html: '<p>This is a test</p>',
+      from: process.env.GMAIL_USER,
+      to,
+      subject,
+      html: `<p>${message}</p>`,
     };
 
-    transporter.sendMail(mailOptions, (err, info) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(info);
-      }
-    });
+    try {
+      const info = await transporter.sendMail(mailOptions);
+      console.log('Mail sent', info); // eslint-disable-line no-console
+    } catch (error) {
+      console.log('Error sending mail: ', error); // eslint-disable-line no-console
+    }
   },
 };
 
