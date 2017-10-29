@@ -1,6 +1,6 @@
-import getDatabase, { tables } from './db';
-import time from './util/time';
-import getDefinedActivities from './data/definedActivities';
+import getDatabase, { tables } from '../../src/db';
+import time from '../../src/util/time';
+import getDefinedActivities from '../../data/definedActivities';
 
 syncActivities();
 
@@ -19,7 +19,7 @@ async function syncActivities() {
       const existingActivity = await knex.select().table(tables.ACTIVITIES).where({ year, month, name });
 
       if (existingActivity.length === 0) {
-        await knex(tables.ACTIVITIES).insert({ ...activity, last_update: time.todayAsString() });
+        await knex(tables.ACTIVITIES).insert({ ...activity, updated: time.todayAsString() });
       }
     } catch (error) {
       console.warn(error); // eslint-disable-line no-console
