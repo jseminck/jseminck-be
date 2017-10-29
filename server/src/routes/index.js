@@ -18,6 +18,6 @@ export default function setupRoutes(app) {
 
   app
     .use(router.routes())
-  // Makes sure a 405 Method Not Allowed is sent
+    // Makes sure a 405 Method Not Allowed is sent
     .use(router.allowedMethods());
 }
