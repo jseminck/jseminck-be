@@ -9,10 +9,8 @@
     "build": "babel src/ -d dist",
     "build:clean": "rimraf ./dist",
     "lint": "eslint ./src",
-
     "database:reset": "babel-node ./scripts/db/clearDatabase",
     "database:sync": "babel-node ./scripts/db/syncDatabase",
-
     "knex:migrations:run": "knex migrate:latest",
     "knex:migrations:create": "knex migrate:make"
   },
@@ -20,9 +18,11 @@
     "aws-sdk": "^2.140.0",
     "babel-polyfill": "^6.26.0",
     "dotenv": "^4.0.0",
+    "jsonwebtoken": "^8.1.0",
     "knex": "^0.13.0",
     "knex-logger-koa": "^0.1.1",
     "koa": "^2.3.0",
+    "koa-body": "^2.5.0",
     "koa-cors": "0.0.16",
     "koa-router": "^7.2.1",
     "lodash": "^4.17.4",
