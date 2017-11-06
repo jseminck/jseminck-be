@@ -5,6 +5,7 @@ import currenciesRoutes from './currencies';
 import logsRoutes from './logs';
 import pingRoutes from './ping';
 import restaurantRoutes from './restaurants';
+import stocksRoutes from './stocks';
 
 export default function setupRoutes(app) {
   const router = new Router();
@@ -15,6 +16,7 @@ export default function setupRoutes(app) {
   logsRoutes(router);
   pingRoutes(router);
   restaurantRoutes(router);
+  stocksRoutes(router);
 
   app
     .use(router.routes())

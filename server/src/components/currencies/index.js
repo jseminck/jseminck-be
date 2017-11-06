@@ -1,4 +1,4 @@
-import currencyRatesService from '../../services/currencyRatesService';
+import currencyRatesService from './service';
 import scrapeXe from './scrapeXe';
 import time from '../../util/time';
 

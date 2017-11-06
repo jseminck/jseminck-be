@@ -1,4 +1,4 @@
-import logService from '../services/logService';
+import logService from './service';
 
 export default function logsRoutes(router) {
   router.get('/logs', getLogs);

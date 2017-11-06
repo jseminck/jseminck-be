@@ -1,4 +1,4 @@
-import activitiesService from '../../services/activitiesService';
+import activitiesService from './service';
 import time from '../../util/time';
 
 export default function activitiesRoutes(router) {

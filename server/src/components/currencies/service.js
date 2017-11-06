@@ -1,4 +1,4 @@
-import getDatabase, { tables } from '../db';
+import getDatabase, { tables } from '../../db';
 
 export default {
   async findAll(updated) {

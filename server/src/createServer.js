@@ -1,6 +1,6 @@
 import Koa from 'koa';
 import setupMiddlewares from './middlewares';
-import setupRoutes from './routes';
+import setupRoutes from './components/routes';
 import setupSchedulers from './schedules';
 
 export default function createServer() {

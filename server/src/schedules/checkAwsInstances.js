@@ -1,5 +1,5 @@
 import mailService from '../services/mailService';
-import { getAwsInstances } from '../routes/aws';
+import { getAwsInstances } from '../components/aws';
 
 export default async function checkAwsInstances() {
   console.log('Scheduler: checking AWS instances'); // eslint-disable-line no-console

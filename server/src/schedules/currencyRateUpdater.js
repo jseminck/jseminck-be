@@ -1,4 +1,4 @@
-import { getCurrencies } from '../routes/currencies';
+import { getCurrencies } from '../components/currencies';
 
 export default async function currencyRateUpdater() {
   console.log('Scheduler: updating currency rates'); // eslint-disable-line no-console

@@ -1,4 +1,4 @@
-import logService from '../services/logService';
+import logService from '../components/logs/service';
 
 export default function setupLogger(app) {
   app.use(async (ctx, next) => {

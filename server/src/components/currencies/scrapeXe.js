@@ -1,7 +1,7 @@
 import { promisify } from 'util';
 import xray from 'x-ray';
 import time from '../../util/time';
-import currencyRatesService from '../../services/currencyRatesService';
+import currencyRatesService from './service';
 import getCurrencies from './currencies';
 
 export default function scrapeXe() {
