@@ -17,6 +17,7 @@
   "dependencies": {
     "aws-sdk": "^2.140.0",
     "babel-polyfill": "^6.26.0",
+    "bcrypt": "^1.0.3",
     "dotenv": "^4.0.0",
     "jsonwebtoken": "^8.1.0",
     "knex": "^0.13.0",
