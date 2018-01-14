@@ -47,7 +47,7 @@ export default {
       .select()
       .table(tables.TT2_COMMANDS)
       .where({ completed: false })
-      .orderByRaw('time DESC')
+      .orderByRaw('time ASC')
       .limit(20);
 
     await Promise.all(commands.map((command) => {

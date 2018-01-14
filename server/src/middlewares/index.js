@@ -8,7 +8,7 @@ const serve = require('koa-static');
 
 export default function setupMiddlewares(app) {
   app.use(koaBody({ multipart: true }));
-  app.use(serve(path.join(__dirname, '../../screenshots')));
+  app.use(serve(path.join(__dirname, '/../../screenshots')));
 
   setupErrorHandler(app);
   setupCors(app);
