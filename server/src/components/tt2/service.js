@@ -40,7 +40,7 @@ export default {
     });
   },
 
-  async findLatestCommands() {
+  async findCompletedLatestCommands() {
     const knex = await getDatabase();
 
     const commands = await knex
@@ -59,5 +59,16 @@ export default {
       }),);
 
     return commands;
+  },
+
+  async findAllLatestCommands() {
+    const knex = await getDatabase();
+
+    retuen await knex
+      .select()
+      .table(tables.TT2_COMMANDS)
+      .where({ completed: false })
+      .orderByRaw('time DESC')
+      .limit(20);
   },
 };

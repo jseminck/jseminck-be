@@ -5,7 +5,8 @@ export default function tt2Routes(router) {
     .get('/tt2/stage', getStage)
     .get('/tt2/log', getLogs)
     .post('/tt2/log', createLogEntry)
-    .get('/tt2/commands', getLatestCommands)
+    .get('/tt2/commands', getCompletedLatestCommands)
+    .get('/tt2/commands/all', getAllLatestCommands)
     .post('/tt2/commands', createCommand);
 }
 export async function getStage(ctx) {
@@ -28,8 +29,14 @@ export async function createLogEntry(ctx) {
   ctx.body = { type, message };
 }
 
-export async function getLatestCommands(ctx) {
-  const logs = await tt2Service.findLatestCommands();
+export async function getCompletedLatestCommands(ctx) {
+  const logs = await tt2Service.findCompletedLatestCommands();
+  ctx.status = 200;
+  ctx.body = logs;
+}
+
+export async function getAllLatestCommands(ctx) {
+  const logs = await tt2Service.findAllLatestCommands();
   ctx.status = 200;
   ctx.body = logs;
 }
