@@ -67,7 +67,6 @@ export default {
     return knex
       .select()
       .table(tables.TT2_COMMANDS)
-      .where({ completed: false })
       .orderByRaw('time DESC')
       .limit(20);
   },
