@@ -7,6 +7,7 @@ import logsRoutes from './logs';
 import pingRoutes from './ping';
 import restaurantRoutes from './restaurants';
 import stocksRoutes from './stocks';
+import tt2Routes from './tt2';
 
 export default function setupRoutes(app) {
   const router = new Router();
@@ -19,6 +20,7 @@ export default function setupRoutes(app) {
   pingRoutes(router);
   restaurantRoutes(router);
   stocksRoutes(router);
+  tt2Routes(router);
 
   app
     .use(router.routes())

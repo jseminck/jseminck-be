@@ -1,18 +1,14 @@
 import jwt from 'jsonwebtoken';
 
 export default function awsRoutes(router) {
-  router
-    .post('/login', login)
-    .get('/login', verifyToken);
+  router.post('/login', login).get('/login', verifyToken);
 }
 
 const SECRET_KEY = 'shhhhh';
 
 function login(ctx) {
   const { request: { body } } = ctx;
-  console.log(body);
   const { username, password } = JSON.parse(body);
-  console.log(username, password);
 
   if (!username || !password) {
     ctx.status = 500;
