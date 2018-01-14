@@ -3,6 +3,7 @@ import setupErrorHandler from './errors';
 import setupLogger from './logger';
 import koaBody from 'koa-body';
 
+const path = require('path');
 const serve = require('koa-static');
 
 export default function setupMiddlewares(app) {
