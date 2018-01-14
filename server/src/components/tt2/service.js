@@ -26,6 +26,7 @@ export default {
     return knex
       .select()
       .table(tables.TT2_LOGS)
+      .whereNot('type', 'STAGE')
       .orderByRaw('time DESC')
       .limit(20);
   },
