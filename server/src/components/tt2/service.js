@@ -22,7 +22,7 @@ export default {
 
   async findLatestLogs() {
     const knex = await getDatabase();
-    await knex(tables.TT2_LOGS)
+    await knex()
       .select()
       .table(tables.TT2_LOGS)
       .limit(50);
