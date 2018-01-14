@@ -55,10 +55,10 @@ export async function createCommand(ctx) {
 }
 
 export async function uploadScreenshot(ctx) {
-  const fileBase64 = ctx.request.body;
-  console.log('fileBase64', fileBase64);
+  const { imageBase64 } = ctx.request.body;
+  console.log('fileBase64', imageBase64);
 
-  fs.writeFile(`${__dirname}out.png`, fileBase64, 'base64', (err) => {
+  fs.writeFile(`${__dirname}out.png`, imageBase64, 'base64', (err) => {
     console.log(err);
   });
 
