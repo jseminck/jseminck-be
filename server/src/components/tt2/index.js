@@ -58,7 +58,7 @@ export async function uploadScreenshot(ctx) {
   const { imageBase64 } = ctx.request.body;
   console.log('fileBase64', imageBase64);
 
-  fs.writeFile(`${__dirname}out.png`, imageBase64, 'base64', (err) => {
+  fs.writeFile(`${__dirname}/out.png`, imageBase64, 'base64', (err) => {
     console.log(err);
   });
 
