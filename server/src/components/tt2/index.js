@@ -29,7 +29,7 @@ export async function createLogEntry(ctx) {
 }
 
 export async function getLatestCommands(ctx) {
-  const logs = await tt2Service.getLatestCommands();
+  const logs = await tt2Service.findLatestCommands();
   ctx.status = 200;
   ctx.body = logs;
 }
