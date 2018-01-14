@@ -8,7 +8,8 @@ export default {
       .select()
       .table(tables.TT2_LOGS)
       .where({ type })
-      .orderByRaw('time DESC');
+      .orderByRaw('time DESC')
+      .limit(5);
   },
 
   async createLog(logEntry) {
@@ -17,5 +18,13 @@ export default {
       ...logEntry,
       time: new Date(),
     });
+  },
+
+  async findLatestLogs() {
+    const knex = await getDatabase();
+    await knex(tables.TT2_LOGS)
+      .select()
+      .table(tables.TT2_LOGS)
+      .limit(50);
   },
 };
