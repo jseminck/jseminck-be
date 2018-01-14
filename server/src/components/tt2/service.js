@@ -64,7 +64,7 @@ export default {
   async findAllLatestCommands() {
     const knex = await getDatabase();
 
-    retuen await knex
+    return knex
       .select()
       .table(tables.TT2_COMMANDS)
       .where({ completed: false })
