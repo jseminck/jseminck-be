@@ -32,7 +32,7 @@ export default {
 
   async createCommand(command) {
     const knex = await getDatabase();
-    await knex(tables.TT2_LOGS).insert({
+    await knex(tables.TT2_COMMANDS).insert({
       ...command,
       time: new Date(),
     });
