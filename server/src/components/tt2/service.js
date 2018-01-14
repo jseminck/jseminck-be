@@ -49,13 +49,14 @@ export default {
       .orderByRaw('time DESC')
       .limit(20);
 
-    commands.forEach((command) => {
-      knex(tables.TT2_COMMANDS)
-        .where({ id: command.id })
-        .update({
-          completed: true,
-        });
-    });
+    await Promise.all(commands.map((command) => {
+        return knex(tables.TT2_COMMANDS)
+          .where({ id: command.id })
+          .update({
+            completed: true,
+          });
+      });
+    );
 
     return commands;
   },
