@@ -28,4 +28,5 @@ export default {
       .table(tables.TT2_LOGS)
       .orderByRaw('time DESC')
       .limit(20);
+  },
 };
