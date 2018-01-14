@@ -1,5 +1,9 @@
 import tt2Service from './service';
 
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+
 export default function tt2Routes(router) {
   router
     .get('/tt2/stage', getStage)
@@ -7,7 +11,8 @@ export default function tt2Routes(router) {
     .post('/tt2/log', createLogEntry)
     .get('/tt2/commands', getCompletedLatestCommands)
     .get('/tt2/commands/all', getAllLatestCommands)
-    .post('/tt2/commands', createCommand);
+    .post('/tt2/commands', createCommand)
+    .post('/tt2/screenshot', uploadScreenshot);
 }
 export async function getStage(ctx) {
   const stageEntries = await tt2Service.findByType('STAGE');
@@ -47,4 +52,16 @@ export async function createCommand(ctx) {
   await tt2Service.createCommand({ command });
   ctx.status = 200;
   ctx.body = { command };
+}
+
+export async function uploadScreenshot(ctx) {
+  const fileBase64 = ctx.request.body;
+  console.log('fileBase64', fileBase64);
+
+  fs.writeFile(`${__dirname}out.png`, fileBase64, 'base64', err => {}
+    console.log(err)
+  });
+
+  ctx.status = 200;
+  ctx.body = {};
 }
