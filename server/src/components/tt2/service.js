@@ -55,8 +55,7 @@ export default {
           .update({
             completed: true,
           });
-      });
-    );
+      }),);
 
     return commands;
   },
