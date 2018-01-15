@@ -18,25 +18,58 @@ class App extends Component {
 
         <div className="container">
           <div className="row col-md-12">
-            <Action command="STOP" name="Stop" />
-            <Action command="LEVEL_ALL_HEROES" name="Level all heroes" />
+            <Action command="CLAN_QUEST" name="Clan Quest" />
+            <Action
+              command="LEVEL_ALL_HEROES_15"
+              name="Level all heroes (15 swipes)"
+            />
+            <Action
+              command="LEVEL_ALL_HEROES_3"
+              name="Level all heroes (3 swipes)"
+            />
             <Action command="LEVEL_SWORD_MASTER" name="Level sword master" />
-            <Action command="LEVEL_SKILLS" name="Level skills" />
             <Action command="TAP" name="Tap" />
           </div>
 
+          <div>
+            <Action command="LEVEL_SKILLS" name="Level all skills" />
+            <Action
+              command="LEVEL_HEAVENLY_STRIKE"
+              name="Level Heavenly Strike"
+            />
+            <Action
+              command="LEVEL_DEADLY_STRIKES"
+              name="Level Deadly Strikes"
+            />
+            <Action command="LEVEL_HAND_OF_MIDAS" name="Level Hand of Midas" />
+            <Action command="LEVEL_FIRE_SWORD" name="Level Fire Sword" />
+            <Action command="LEVEL_WAR_CRY" name="Level War Cry" />
+            <Action command="LEVEL_SHADOW_CLONE" name="Level Shadow Clone" />
+          </div>
+
           <div className="row col-md-12">
-            <Action command="HEAVENLY_STRIKE" name="Heavenly Strike" />
-            <Action command="DEADLY_STRIKES" name="Deadly Strikes" />
-            <Action command="HAND_OF_MIDAS" name="Hand of Midas" />
-            <Action command="FIRE_SWORD" name="Fire Sword" />
-            <Action command="WAR_CRY" name="War Cry" />
-            <Action command="SHADOW_CLONE" name="Shadow Clone" />
+            <Action command="ACTIVATE_HEAVENLY_STRIKE" name="Heavenly Strike" />
+            <Action command="ACTIVATE_DEADLY_STRIKES" name="Deadly Strikes" />
+            <Action command="ACTIVATE_HAND_OF_MIDAS" name="Hand of Midas" />
+            <Action command="ACTIVATE_FIRE_SWORD" name="Fire Sword" />
+            <Action command="ACTIVATE_WAR_CRY" name="War Cry" />
+            <Action command="ACTIVATE_SHADOW_CLONE" name="Shadow Clone" />
+            <Action
+              command="ACTIVATE_ALL_SKILLS_EXCEPT_HEAVENLY_STRIKE"
+              name="All Skills (except HS)"
+            />
           </div>
 
           <Action command="PRESTIGE" name="Prestige" />
           <Action command="TOGGLE_LOOP" name="Toggle Loop" />
           <Action command="UPLOAD_SCREENSHOT" name="Refresh Screenshot" />
+
+          <Action command="OPEN_APP" name="Open App" />
+          <Action command="CLOSE_APP" name="Close App" />
+          <Action
+            command="SWIPE_ALL_MENUS_TO_TOP"
+            name="Swipe all menus to top"
+          />
 
           <div className="row">
             <div className="col-md-4">
