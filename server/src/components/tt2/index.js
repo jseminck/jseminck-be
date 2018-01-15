@@ -1,21 +1,22 @@
-import tt2Service from './service';
+import tt2Service from "./service";
 
-const fs = require('fs');
-const os = require('os');
-const path = require('path');
+const fs = require("fs");
+const os = require("os");
+const path = require("path");
 
 export default function tt2Routes(router) {
   router
-    .get('/tt2/stage', getStage)
-    .get('/tt2/log', getLogs)
-    .post('/tt2/log', createLogEntry)
-    .get('/tt2/commands', getCompletedLatestCommands)
-    .get('/tt2/commands/all', getAllLatestCommands)
-    .post('/tt2/commands', createCommand)
-    .post('/tt2/screenshot', uploadScreenshot);
+    .get("/tt2/stage", getStage)
+    .get("/tt2/log", getLogs)
+    .post("/tt2/log", createLogEntry)
+    .get("/tt2/commands", getCompletedLatestCommands)
+    .get("/tt2/commands/all", getAllLatestCommands)
+    .post("/tt2/commands", createCommand)
+    .post("/tt2/commands/:commandId", markCommandAsCompleted)
+    .post("/tt2/screenshot", uploadScreenshot);
 }
 export async function getStage(ctx) {
-  const stageEntries = await tt2Service.findByType('STAGE');
+  const stageEntries = await tt2Service.findByType("STAGE");
   ctx.status = 200;
   ctx.body = stageEntries;
 }
@@ -54,16 +55,23 @@ export async function createCommand(ctx) {
   ctx.body = { command };
 }
 
+export async function markCommandAsCompleted(ctx) {
+  const { commandId } = ctx.params;
+  await tt2Service.markCommandAsCompleted(commandId);
+  ctx.status = 200;
+  ctx.body = {};
+}
+
 export async function uploadScreenshot(ctx) {
   const { imageBase64 } = ctx.request.body;
 
   fs.writeFile(
     `${__dirname}/../../../screenshots/out.png`,
     imageBase64,
-    'base64',
-    (err) => {
+    "base64",
+    err => {
       console.log(err);
-    },
+    }
   );
 
   ctx.status = 200;

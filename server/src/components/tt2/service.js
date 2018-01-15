@@ -43,22 +43,12 @@ export default {
   async findCompletedLatestCommands() {
     const knex = await getDatabase();
 
-    const commands = await knex
+    return await knex
       .select()
       .table(tables.TT2_COMMANDS)
       .where({ completed: false })
       .orderByRaw('time ASC')
       .limit(20);
-
-    await Promise.all(commands.map((command) => {
-        return knex(tables.TT2_COMMANDS)
-          .where({ id: command.id })
-          .update({
-            completed: true,
-          });
-      }),);
-
-    return commands;
   },
 
   async findAllLatestCommands() {
@@ -69,5 +59,13 @@ export default {
       .table(tables.TT2_COMMANDS)
       .orderByRaw('time DESC')
       .limit(20);
+  },
+
+  async markCommandAsCompleted(commandId) {
+    return knex(tables.TT2_COMMANDS)
+      .where({ id: commandId })
+      .update({
+        completed: true,
+      });
   },
 };
