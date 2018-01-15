@@ -62,6 +62,8 @@ export default {
   },
 
   async markCommandAsCompleted(commandId) {
+    const knex = await getDatabase();
+
     return knex(tables.TT2_COMMANDS)
       .where({ id: commandId })
       .update({
