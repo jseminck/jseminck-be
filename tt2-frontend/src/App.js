@@ -27,24 +27,39 @@ class App extends Component {
               command="LEVEL_ALL_HEROES_3"
               name="Level all heroes (3 swipes)"
             />
+            <Action
+              command="LEVEL_ALL_HEROES_1"
+              name="Level all heroes (1 swipe)"
+            />
             <Action command="LEVEL_SWORD_MASTER" name="Level sword master" />
-            <Action command="TAP" name="Tap" />
+            <Action command="TAP_MANY" name="Tap Many" />
+            <Action command="TAP_LITTLE" name="Tap Little" />
           </div>
 
           <div>
-            <Action command="LEVEL_SKILLS" name="Level all skills" />
+            <Action command="LEVEL_SKILLS_1" name="Level all skills (1)" />
+            <Action command="LEVEL_SKILLS_3" name="Level all skills (3)" />
             <Action
               command="LEVEL_HEAVENLY_STRIKE"
               name="Level Heavenly Strike"
             />
+
             <Action
               command="LEVEL_DEADLY_STRIKES"
               name="Level Deadly Strikes"
+            />
+            <Action
+              command="LEVEL_DEADLY_STRIKES_MAX"
+              name="Level Deadly Strikes (Max)"
             />
             <Action command="LEVEL_HAND_OF_MIDAS" name="Level Hand of Midas" />
             <Action command="LEVEL_FIRE_SWORD" name="Level Fire Sword" />
             <Action command="LEVEL_WAR_CRY" name="Level War Cry" />
             <Action command="LEVEL_SHADOW_CLONE" name="Level Shadow Clone" />
+            <Action
+              command="LEVEL_SHADOW_CLONE_MAX"
+              name="Level Shadow Clone (Max)"
+            />
           </div>
 
           <div className="row col-md-12">
@@ -67,9 +82,14 @@ class App extends Component {
           <Action command="OPEN_APP" name="Open App" />
           <Action command="CLOSE_APP" name="Close App" />
           <Action
+            command="COLLECT_INACTIVE_GOLD"
+            name="Collect inactive gold"
+          />
+          <Action
             command="SWIPE_ALL_MENUS_TO_TOP"
             name="Swipe all menus to top"
           />
+          <Action command="CLAN_QUEST" name="Clan Quest" />
 
           <div className="row">
             <div className="col-md-4">
