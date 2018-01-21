@@ -16,7 +16,7 @@ export default class Action extends React.Component {
   render() {
     return (
       <button
-        className="btn btn-primary"
+        className="btn btn-primary btn-block"
         style={{ margin: 10 }}
         onClick={this.executeAction.bind(this)}
       >
